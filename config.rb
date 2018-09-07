@@ -4,7 +4,7 @@ end
 
 activate :sprockets
 
-page '/*.xml', layout: false
+page '/*.xml', layout: true
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
