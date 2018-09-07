@@ -1,14 +1,32 @@
 ---
 title: Le Wagon - Middleman - About
 ---
+<% filepath  = 'ENEDIS.xml' %>
+<% builder   = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do %>
+  <% Index_C5 do %>
+    <% Corps_de_fichier_par_PDL do %>
+      <% Identifiant_Stable_PDL '01234567891234' %>
+      <% Date_Debut_Consommation  '2018-08-27' %>
+      <% Date_Fin_Consommation '2018-08-27' %>
+      <% Index_Debut_Consommation '560' %>
+      <% Index_A_Facturer '640' %>
+      <% Consommation_Cadran '80' %>
+    <% end %>
+    <% Corps_de_fichier_par_PDL do %>
+      <% Identifiant_Stable_PDL '01234567891235' %>
+      <% Date_Debut_Consommation  '2018-08-28' %>
+      <% Date_Fin_Consommation '2018-08-28' %>
+      <% Index_Debut_Consommation '36407' %>
+      <% Index_A_Facturer '' %>
+      <% Consommation_Cadran '0' %>
+    <% end %>
+  <%end %>
+<% end %>
 
+<% File.open(filepath, 'wb') { |file| file.write(builder.to_xml) } %>
 
-
-
-
-<h1> Here should appear the results </h1>
-
-<div  class = "table-container">
+<div class = "wrapper">
+  <h1> Here should appear the results </h1>
   <table>
     <thead>
       <tr>
@@ -21,7 +39,7 @@ title: Le Wagon - Middleman - About
       </tr>
     </thead>
     <tbody>
-      <% file = File.open('data/ENEDIS.xml') %>
+      <% file = File.open('ENEDIS.xml') %>
       <% document  = Nokogiri::XML(file) %>
       <% document.root.xpath('Corps_de_fichier_par_PDL').each do |fichier| %>
       <% Identifiant_PDL = fichier.xpath('Date_Debut_Consommation').text %>
@@ -40,8 +58,5 @@ title: Le Wagon - Middleman - About
         </tr>
       <% end %>
     </tbody>
-</table>
+  </table>
 </div>
-
-
-

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Index_C5>
+  <Corps_de_fichier_par_PDL>
+    <Identifiant_Stable_PDL>01234567891234</Identifiant_Stable_PDL>
+    <Date_Debut_Consommation>2018-08-27</Date_Debut_Consommation>
+    <Date_Fin_Consommation>2018-08-27</Date_Fin_Consommation>
+    <Index_Debut_Consommation>560</Index_Debut_Consommation>
+    <Index_A_Facturer>640</Index_A_Facturer>
+    <Consommation_Cadran>80</Consommation_Cadran>
+  </Corps_de_fichier_par_PDL>
+  <Corps_de_fichier_par_PDL>
+    <Identifiant_Stable_PDL>01234567891235</Identifiant_Stable_PDL>
+    <Date_Debut_Consommation>2018-08-28</Date_Debut_Consommation>
+    <Date_Fin_Consommation>2018-08-28</Date_Fin_Consommation>
+    <Index_Debut_Consommation>36407</Index_Debut_Consommation>
+    <Index_A_Facturer/>
+    <Consommation_Cadran>0</Consommation_Cadran>
+  </Corps_de_fichier_par_PDL>
+</Index_C5>
