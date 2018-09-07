@@ -1,24 +1,19 @@
 ---
 title: Le Wagon - Middleman - About
 ---
+<div>
+  require 'nokogiri'
 
-<div id="about">
-  <div class="about-content">
-    <h1>This template was built with <i class="fas fa-heart"></i> by</h1>
-    <ul class="list-inline">
-      <% data.users.each do |user| %>
-        <li>
-          <% link_to "https://kitt.lewagon.com/alumni/#{user.github_nickname}", target: "_blank" do %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{user.github_nickname}", class: "img-circle" %>
-          <% end %>
-          <h2><%= user.name %></h2>
-          <p>
-            <% link_to "https://github.com/#{user.github_nickname}", target: "_blank" do %>
-              <i class="fab fa-github"></i> <%= user.github_nickname %>
-            <% end %>
-          </p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <% file = File.open('data/ENEDIS.xml') %>
+  <% document  = Nokogiri::XML(file) %>
+  <% document.root.xpath('Corps_de_fichier_par_PDL').each do |fichier| %>
+  <% Date_Debut_Consommation = fichier.xpath('Date_Debut_Consommation').text %>
+  <% Date_Fin_Consommation  = fichier.xpath('Date_Fin_Consommation').text %>
+  <% Index_Debut_Consommation = fichier.xpath('Index_Debut_Consommation').text %>
+  <% Index_A_Facturer =fichier.xpath('Index_A_Facturer').text %>
+  <% Consommation_Cadran = fichier.xpath('Consommation_Cadran').text %>
+
+  <%= "#{Date_Debut_Consommation} - #{Date_Fin_Consommation} - #{Index_Debut_Consommation} - #{Index_A_Facturer} - #{Consommation_Cadran}" %>
+<% end %>
 </div>
+
