@@ -1,31 +1,32 @@
 ---
-title: Le Wagon - Middleman - About
+title: ILEK - XML Test
 ---
-<% filepath  = 'ENEDIS.xml' %>
-<% builder   = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do %>
-  <% Index_C5 do %>
-    <% Corps_de_fichier_par_PDL do %>
-      <% Identifiant_Stable_PDL '01234567891234' %>
-      <% Date_Debut_Consommation  '2018-08-27' %>
-      <% Date_Fin_Consommation '2018-08-27' %>
-      <% Index_Debut_Consommation '560' %>
-      <% Index_A_Facturer '640' %>
-      <% Consommation_Cadran '80' %>
-    <% end %>
-    <% Corps_de_fichier_par_PDL do %>
-      <% Identifiant_Stable_PDL '01234567891235' %>
-      <% Date_Debut_Consommation  '2018-08-28' %>
-      <% Date_Fin_Consommation '2018-08-28' %>
-      <% Index_Debut_Consommation '36407' %>
-      <% Index_A_Facturer '' %>
-      <% Consommation_Cadran '0' %>
-    <% end %>
-  <%end %>
-<% end %>
+
+  <% filepath  = 'ENEDIS.xml' %>
+  <% builder   = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do %>
+    <% Index_C5 do %>
+      <% Corps_de_fichier_par_PDL do %>
+        <% Identifiant_Stable_PDL '01234567891234' %>
+        <% Date_Debut_Consommation  '2018-08-27' %>
+        <% Date_Fin_Consommation '2018-08-27' %>
+        <% Index_Debut_Consommation '560' %>
+        <% Index_A_Facturer '640' %>
+        <% Consommation_Cadran '80' %>
+        <% end %>
+        <% Corps_de_fichier_par_PDL do %>
+        <% Identifiant_Stable_PDL '01234567891235'  %>
+        <% Date_Debut_Consommation  '2018-08-28' %>
+        <% Date_Fin_Consommation '2018-08-28' %>
+        <% Index_Debut_Consommation '36407' %>
+        <% Index_A_Facturer '' %>
+        <% Consommation_Cadran '0' %>
+        <% end %>
+      <% end %>
+  <% end %>
+
+<div class = "container">
 
 <% File.open(filepath, 'wb') { |file| file.write(builder.to_xml) } %>
-
-<div class = "wrapper">
   <h1> Here should appear the results </h1>
   <table>
     <thead>
